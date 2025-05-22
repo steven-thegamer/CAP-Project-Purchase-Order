@@ -19,15 +19,15 @@ annotate AdminService.Orders with @(
     UI.Facets                    : [
         {
             $Type : 'UI.ReferenceFacet',
-            Label : '{i18n>Header}',
-            ID    : 'Header',
-            Target: '@UI.FieldGroup#Header'
-        },
-        {
-            $Type : 'UI.ReferenceFacet',
             Label : '{i18n>General}',
             ID    : 'General',
             Target: '@UI.FieldGroup#General'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Quantity}',
+            ID    : 'Quantity',
+            Target: '@UI.FieldGroup#Quantity'
         },
         {
             $Type : 'UI.ReferenceFacet',
@@ -55,7 +55,83 @@ annotate AdminService.Orders with @(
                 Value: orderNo
             },
         ]
-    }
+    },
+    UI.FieldGroup #General       : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: orderNo
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: purchOrg_purchOrg
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: purchGroup_purchGroup
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: vendor_vendor
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: companyCode_companyCode
+            },
+        ]
+    },
+    UI.FieldGroup #Quantity       : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: totalNetPrice
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: currency_code
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: totalStock
+            },
+        ]
+    },
+    UI.FieldGroup #Details       : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: note
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: text
+            },
+        ]
+    },
+    UI.FieldGroup #Administrative       : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: createdAt
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: createdBy
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: modifiedAt
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: modifiedBy
+            },
+        ]
+    },
 );
 
 annotate AdminService.OrderItems with @(UI: {
