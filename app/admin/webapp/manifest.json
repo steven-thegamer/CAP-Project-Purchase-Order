@@ -66,9 +66,9 @@
                     "target": "AdminService"
                 },
                 {
-                    "pattern": "Orders([key]):?query:",
-                    "name": "AdminServiceObjectPage",
-                    "target": "AdminServiceObjectPage"
+                    "pattern": "Orders({key}):?query:",
+                    "name": "POObjectPage",
+                    "target": "POObjectPage"
                 }
             ],
             "targets": {
@@ -79,13 +79,20 @@
                     "options": {
                         "settings": {
                             "entitySet": "Orders",
-                            "navigation": {}
+                            "navigation": {
+                                "Orders": {
+                                    "detail": {
+                                        "route": "POObjectPage"
+                                    }
+                                }
+                            },
+                            "initialLoad": "Enabled"
                         }
                     }
                 },
-                "AdminServiceObjectPage": {
+                "POObjectPage": {
                     "type": "Component",
-                    "id": "AdminServiceObjectPage",
+                    "id": "POObjectPage",
                     "name": "sap.fe.templates.ObjectPage",
                     "options": {
                         "settings": {

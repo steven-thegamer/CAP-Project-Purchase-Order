@@ -5,3 +5,6 @@ spring:
   sql.init.platform: h2
 cds:
   data-source.auto-config.enabled: false
+  odata-v4:
+    endpoint.path: "/api"
+    lazy-i18n.enabled: true
