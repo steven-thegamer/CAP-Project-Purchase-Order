@@ -45,6 +45,11 @@ annotate AdminService.Orders with @(
             $Type : 'UI.ReferenceFacet',
             Label : '{i18n>Items}',
             Target: 'items/@UI.LineItem'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Attachments}',
+            Target: 'attachments/@UI.LineItem'
         }
     ],
     UI.FieldGroup #Basic_info    : {
@@ -108,6 +113,13 @@ annotate AdminService.Orders with @(
             {
                 $Type: 'UI.DataField',
                 Value: text
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: statusIcon,
+                Criticality : {
+                    $value: status_code,
+                },
             },
         ]
     },
@@ -204,11 +216,52 @@ annotate AdminService.OrderItems with @(UI: {
             Label             : '{i18n>StorageLocation}',
             @UI.Importance: #Medium
         },
+    ],
+    HeaderFacets              : [
         {
-            Value             : deletionIndicator,
-            Label             : '{i18n>DeletionIndicator}',
-            @UI.Importance: #Low
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>POItemData}',
+            ID    : 'Header',
+            Target: '@UI.FieldGroup#Basic_info'
         },
-    ]
+    ],
+    FieldGroup #Basic_info : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: orderItemNo
+            },
+        ]
+    },
 }
 );
+
+annotate AdminService.Attachments with @(UI: {
+    PresentationVariant        : {
+        $Type    : 'UI.PresentationVariantType',
+        SortOrder: [{
+            $Type     : 'Common.SortOrderType',
+            Property  : modifiedAt,
+            Descending: true
+        }, ],
+    },
+    LineItem  : [
+        {
+            Value             : orderItem_ID,
+            Label             : '{i18n>OrderItemNo}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : fileName,
+            Label             : '{i18n>FileName}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : fileType,
+            Label             : '{i18n>FileType}',
+            @UI.Importance: #Low
+        },
+    ],
+
+}) ;

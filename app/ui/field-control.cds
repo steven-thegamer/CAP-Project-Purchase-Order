@@ -6,3 +6,7 @@ annotate AdminService.Orders with {
     text @UI.MultiLineText    : true;
     totalNetPrice @Measures.ISOCurrency: currency_code;
 };
+
+annotate AdminService.OrderItems with {
+    ID @UI.Hidden @UI.HiddenFilter;
+};
