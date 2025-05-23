@@ -66,9 +66,14 @@
                     "target": "AdminService"
                 },
                 {
-                    "pattern": "Orders([key]):?query:",
-                    "name": "AdminServiceObjectPage",
-                    "target": "AdminServiceObjectPage"
+                    "pattern": "Orders({key}):?query:",
+                    "name": "POObjectPage",
+                    "target": "POObjectPage"
+                },
+                {
+                    "pattern": "items({key}):?query:",
+                    "name": "POItemObjectPage",
+                    "target": "POItemObjectPage"
                 }
             ],
             "targets": {
@@ -79,17 +84,48 @@
                     "options": {
                         "settings": {
                             "entitySet": "Orders",
-                            "navigation": {}
+                            "navigation": {
+                                "Orders": {
+                                    "detail": {
+                                        "route": "POObjectPage"
+                                    }
+                                }
+                            },
+                            "initialLoad": "Enabled"
                         }
                     }
                 },
-                "AdminServiceObjectPage": {
+                "POObjectPage": {
                     "type": "Component",
-                    "id": "AdminServiceObjectPage",
+                    "id": "POObjectPage",
                     "name": "sap.fe.templates.ObjectPage",
                     "options": {
                         "settings": {
                             "contextPath": "/Orders",
+                            "navigation": {
+                                "OrderItems": {
+                                    "detail": {
+                                        "route": "POItemObjectPage"
+                                    }
+                                }
+                            },
+                            "content": {
+                                "header": {
+                                    "anchorBarVisible": true
+                                }
+                            },
+                            "editableHeaderContent": false,
+                            "sectionLayout": "Page"
+                        }
+                    }
+                },
+                "POItemObjectPage": {
+                    "type": "Component",
+                    "id": "POItemObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "contextPath": "/items",
                             "navigation": {},
                             "content": {
                                 "header": {

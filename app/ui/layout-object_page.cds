@@ -1,0 +1,267 @@
+using from '../../srv/admin-service';
+using from '../ui/layout-list_report';
+
+annotate AdminService.Orders with @(
+    UI.HeaderInfo                : {
+        TypeName      : '{i18n>HeaderTitle}',
+        TypeNamePlural: '{i18n>POInfo}',
+        Title         : {Value: orderNo},
+        TypeImageUrl  : 'sap-icon://customer-order-entry'
+    },
+    UI.HeaderFacets              : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>POData}',
+            ID    : 'Header',
+            Target: '@UI.FieldGroup#Basic_info'
+        },
+    ],
+    UI.Facets                    : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>General}',
+            ID    : 'General',
+            Target: '@UI.FieldGroup#General'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Quantity}',
+            ID    : 'Quantity',
+            Target: '@UI.FieldGroup#Quantity'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Details}',
+            ID    : 'Details',
+            Target: '@UI.FieldGroup#Details'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Administrative',
+            ID    : 'Administrative',
+            Target: '@UI.FieldGroup#Administrative'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Items}',
+            Target: 'items/@UI.LineItem'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Attachments}',
+            Target: 'attachments/@UI.LineItem'
+        }
+    ],
+    UI.FieldGroup #Basic_info    : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: orderNo
+            },
+        ]
+    },
+    UI.FieldGroup #General       : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: orderNo
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: purchOrg_purchOrg
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: purchGroup_purchGroup
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: vendor_vendor
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: companyCode_companyCode
+            },
+        ]
+    },
+    UI.FieldGroup #Quantity       : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: totalNetPrice
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: currency_code
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: totalStock
+            },
+        ]
+    },
+    UI.FieldGroup #Details       : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: note
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: text
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: statusIcon,
+                Criticality : {
+                    $value: status_code,
+                },
+            },
+        ]
+    },
+    UI.FieldGroup #Administrative       : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: createdAt
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: createdBy
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: modifiedAt
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: modifiedBy
+            },
+        ]
+    },
+);
+
+annotate AdminService.OrderItems with @(UI: {
+    PresentationVariant        : {
+        $Type    : 'UI.PresentationVariantType',
+        SortOrder: [{
+            $Type     : 'Common.SortOrderType',
+            Property  : modifiedAt,
+            Descending: true
+        }, ],
+    },
+    LineItem : [
+        {
+            Value             : orderItemNo,
+            Label             : '{i18n>OrderItemNo}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : accountAssignmentCategory,
+            Label             : '{i18n>AccountAssignmentCategory}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : itemCategory,
+            Label             : '{i18n>ItemCategory}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : materialNo,
+            Label             : '{i18n>MaterialNo}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : materialDescr,
+            Label             : '{i18n>MaterialDescr}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : deliveryDateCategory,
+            Label             : '{i18n>DeliveryDateCategory}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : stock,
+            Label             : '{i18n>Stock}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : deliveryDate,
+            Label             : '{i18n>DeliveryDate}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : netPrice,
+            Label             : '{i18n>NetPrice}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : materialGroup,
+            Label             : '{i18n>MaterialGroup}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : plant_plant,
+            Label             : '{i18n>Plant}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : storageLocation_storageLocation,
+            Label             : '{i18n>StorageLocation}',
+            @UI.Importance: #Medium
+        },
+    ],
+    HeaderFacets              : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>POItemData}',
+            ID    : 'Header',
+            Target: '@UI.FieldGroup#Basic_info'
+        },
+    ],
+    FieldGroup #Basic_info : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: orderItemNo
+            },
+        ]
+    },
+}
+);
+
+annotate AdminService.Attachments with @(UI: {
+    PresentationVariant        : {
+        $Type    : 'UI.PresentationVariantType',
+        SortOrder: [{
+            $Type     : 'Common.SortOrderType',
+            Property  : modifiedAt,
+            Descending: true
+        }, ],
+    },
+    LineItem  : [
+        {
+            Value             : orderItem_ID,
+            Label             : '{i18n>OrderItemNo}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : fileName,
+            Label             : '{i18n>FileName}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : fileType,
+            Label             : '{i18n>FileType}',
+            @UI.Importance: #Low
+        },
+    ],
+
+}) ;
