@@ -144,8 +144,7 @@ annotate AdminService.Orders with @(UI: {
             },
         ]
     },
-}
-);
+});
 
 annotate AdminService.OrderItems with @(UI: {
     PresentationVariant        : {
@@ -173,8 +172,7 @@ annotate AdminService.OrderItems with @(UI: {
             },
         ]
     },
-}
-);
+});
 
 annotate AdminService.Attachments with @(UI: {
     PresentationVariant        : {

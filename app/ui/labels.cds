@@ -15,5 +15,7 @@ annotate AdminService.Orders with @title: '{i18n>Orders}' {
 };
 
 annotate AdminService.OrderItems with @title: '{i18n>OrderItems}'{
-    
+    orderItemNo @Common.Label: '{i18n>OrderItemNo}';
+    materialNo @Common.Label: '{i18n>MaterialNo}' @Common.Text: materialDescr;
+    text @Common.Label: '{i18n>Text}';
 };

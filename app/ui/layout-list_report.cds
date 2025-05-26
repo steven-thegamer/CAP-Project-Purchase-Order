@@ -61,21 +61,14 @@ annotate AdminService.Orders with @(UI: {
             Value         : statusIcon,
             @UI.Importance: #Low,
         },
-        /*
-        {
-            $Type: 'UI.DataField',
-            Value: stock,
-        },
-        {
-            $Type: 'UI.DataField',
-            Value: rating,
-        },
-        */
     ],
-
 });
 
 annotate AdminService.OrderItems with @(UI: {
+    HeaderInfo: {
+        TypeName      : '{i18n>POHeaderTitle}',
+        TypeNamePlural: '{i18n>POItemInfo}',
+    },
         LineItem : [
         {
             Value             : orderItemNo,

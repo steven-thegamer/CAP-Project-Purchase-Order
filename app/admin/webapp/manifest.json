@@ -69,14 +69,14 @@
                     "target": "AdminService"
                 },
                 {
+                    "name": "POItemObjectPage",
+                    "pattern": "Orders({parent_ID})/items({key}):?query:",
+                    "target": "POItemObjectPage"
+                },
+                {
                     "name": "POObjectPage",
                     "pattern": "Orders({key}):?query:",
                     "target": "POObjectPage"
-                },
-                {
-                    "name": "POItemObjectPage",
-                    "pattern": "Orders('4500000004')/items('450000000410'):?query:",
-                    "target": "POItemObjectPage"
                 }
             ],
             "targets": {
@@ -131,7 +131,7 @@
                     "level": 2,
                     "options": {
                         "settings": {
-                            "contextPath": "/items",
+                            "contextPath": "/OrderItems",
                             "navigation": {},
                             "content": {
                                 "header": {
