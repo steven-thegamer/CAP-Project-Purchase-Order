@@ -13,3 +13,17 @@ annotate AdminService.Orders with @title: '{i18n>Orders}' {
     totalNetPrice @Common.Label: '{i18n>TotalNetPrice}';
     totalStock @Common.Label: '{i18n>TotalStock}';
 };
+
+annotate AdminService.OrderItems with @title: '{i18n>OrderItems}'{
+    orderItemNo @Common.Label: '{i18n>OrderItemNo}';
+    materialNo @Common.Label: '{i18n>MaterialNo}' @Common.Text: materialDescr;
+    text @Common.Label: '{i18n>Text}';
+    deliveryDate @Common.Label: '{i18n>DeliveryDate}';
+    itemCategory @Common.Label: '{i18n>ItemCategory}';
+    materialDescr @Common.Label: '{i18n>MaterialDescr}';
+    deliveryDateCategory @Common.Label: '{i18n>DeliveryDateCategory}';
+    accountAssignmentCategory @Common.Label: '{i18n>AccountAssignmentCategory}';
+    stock @Common.Label: '{i18n>Stock}';
+    netPrice @Common.Label: '{i18n>NetPrice}';
+    plant @Common.Label: '{i18n>Plant}';
+};

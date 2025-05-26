@@ -59,20 +59,23 @@
             }
         },
         "routing": {
+            "config":{
+                "transition":"fade"
+            },
             "routes": [
                 {
-                    "pattern": ":?query:",
                     "name": "AdminService",
+                    "pattern": ":?query:",
                     "target": "AdminService"
                 },
                 {
-                    "pattern": "Orders({key}):?query:",
                     "name": "POObjectPage",
+                    "pattern": "Orders({key}):?query:",
                     "target": "POObjectPage"
                 },
                 {
-                    "pattern": "items({key}):?query:",
                     "name": "POItemObjectPage",
+                    "pattern": "Orders({parent_ID})/items({key}):?query:",
                     "target": "POItemObjectPage"
                 }
             ],
@@ -81,6 +84,7 @@
                     "type": "Component",
                     "id": "AdminService",
                     "name": "sap.fe.templates.ListReport",
+                    "level": 0,
                     "options": {
                         "settings": {
                             "entitySet": "Orders",
@@ -99,6 +103,7 @@
                     "type": "Component",
                     "id": "POObjectPage",
                     "name": "sap.fe.templates.ObjectPage",
+                    "level": 1,
                     "options": {
                         "settings": {
                             "contextPath": "/Orders",
@@ -123,9 +128,10 @@
                     "type": "Component",
                     "id": "POItemObjectPage",
                     "name": "sap.fe.templates.ObjectPage",
+                    "level": 2,
                     "options": {
                         "settings": {
-                            "contextPath": "/items",
+                            "contextPath": "/OrderItems",
                             "navigation": {},
                             "content": {
                                 "header": {
