@@ -50,30 +50,4 @@ import cds.gen.com.win.po.Status_;
 @ServiceName(AdminService_.CDS_NAME)
 public class AdminServiceHandler implements EventHandler  {
 
-    @Autowired
-    private CdsModel model;
-
-    @Autowired
-    private PersistenceService db;
-
-    // WHY DID THE DRAFT KEEPS GETTING ERROR?! WHAT IS WRONG WITH THE HANDLER CLASSES?
-    // OR IS IT BECAUSE OF THE P
-
-    public AdminServiceHandler() {
-        this.db = db;
-        this.model = model;
-    }
-
-    @Before(event = CqnService.EVENT_READ, entity = Orders_.CDS_NAME)
-    public void initOrderBeforeRead() {
-    }
-
-    @Before(event = CqnService.EVENT_CREATE, entity = Orders_.CDS_NAME)
-    public void initOrderBeforeCreate(Orders order) {
-    }
-
-    @On(event = { CqnService.EVENT_CREATE, CqnService.EVENT_UPDATE }, entity = Orders_.CDS_NAME)
-    public void changeOrderOnCreateUpdate(Orders order) {
-    }
-
 }
