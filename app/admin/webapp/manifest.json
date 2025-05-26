@@ -69,14 +69,14 @@
                     "target": "AdminService"
                 },
                 {
-                    "name": "POItemObjectPage",
-                    "pattern": "Orders({parent_ID})/items({key}):?query:",
-                    "target": "POItemObjectPage"
-                },
-                {
                     "name": "POObjectPage",
                     "pattern": "Orders({key}):?query:",
                     "target": "POObjectPage"
+                },
+                {
+                    "name": "POItemObjectPage",
+                    "pattern": "Orders({parent_ID})/items({key}):?query:",
+                    "target": "POItemObjectPage"
                 }
             ],
             "targets": {

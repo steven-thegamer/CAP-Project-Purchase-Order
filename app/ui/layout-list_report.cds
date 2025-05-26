@@ -66,8 +66,8 @@ annotate AdminService.Orders with @(UI: {
 
 annotate AdminService.OrderItems with @(UI: {
     HeaderInfo: {
-        TypeName      : '{i18n>POHeaderTitle}',
-        TypeNamePlural: '{i18n>POItemInfo}',
+        TypeName      : '{i18n>POItem}',
+        TypeNamePlural: '{i18n>POItemPlural}',
     },
         LineItem : [
         {
