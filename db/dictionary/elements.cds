@@ -30,7 +30,7 @@ type name3                     : String(35);
 type name4                     : String(35);
 type city                      : String(40);
 type street                    : String(35);
-type address                   : String(10);
+type address                   : String(100);
 
 //Numerical variables
 type stock                     : Decimal(13, 3);

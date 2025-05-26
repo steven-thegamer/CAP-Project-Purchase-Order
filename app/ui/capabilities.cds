@@ -1,3 +1,3 @@
 using from '../../srv/admin-service';
 
-annotate AdminService.Orders with @odata.draft.enabled;
+//annotate AdminService.Orders with @odata.draft.enabled;

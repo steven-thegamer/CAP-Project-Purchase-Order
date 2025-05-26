@@ -1,14 +1,14 @@
 using from '../../srv/admin-service';
 using from '../ui/layout-list_report';
 
-annotate AdminService.Orders with @(
-    UI.HeaderInfo                : {
+annotate AdminService.Orders with @(UI: {
+    HeaderInfo                : {
         TypeName      : '{i18n>HeaderTitle}',
         TypeNamePlural: '{i18n>POInfo}',
         Title         : {Value: orderNo},
         TypeImageUrl  : 'sap-icon://customer-order-entry'
     },
-    UI.HeaderFacets              : [
+    HeaderFacets              : [
         {
             $Type : 'UI.ReferenceFacet',
             Label : '{i18n>POData}',
@@ -16,7 +16,7 @@ annotate AdminService.Orders with @(
             Target: '@UI.FieldGroup#Basic_info'
         },
     ],
-    UI.Facets                    : [
+    Facets                    : [
         {
             $Type : 'UI.ReferenceFacet',
             Label : '{i18n>General}',
@@ -52,7 +52,7 @@ annotate AdminService.Orders with @(
             Target: 'attachments/@UI.LineItem'
         }
     ],
-    UI.FieldGroup #Basic_info    : {
+    FieldGroup #Basic_info    : {
         $Type: 'UI.FieldGroupType',
         Data : [
             {
@@ -61,7 +61,7 @@ annotate AdminService.Orders with @(
             },
         ]
     },
-    UI.FieldGroup #General       : {
+    FieldGroup #General       : {
         $Type: 'UI.FieldGroupType',
         Data : [
             {
@@ -86,7 +86,7 @@ annotate AdminService.Orders with @(
             },
         ]
     },
-    UI.FieldGroup #Quantity       : {
+    FieldGroup #Quantity       : {
         $Type: 'UI.FieldGroupType',
         Data : [
             {
@@ -103,7 +103,7 @@ annotate AdminService.Orders with @(
             },
         ]
     },
-    UI.FieldGroup #Details       : {
+    FieldGroup #Details       : {
         $Type: 'UI.FieldGroupType',
         Data : [
             {
@@ -123,7 +123,7 @@ annotate AdminService.Orders with @(
             },
         ]
     },
-    UI.FieldGroup #Administrative       : {
+    FieldGroup #Administrative       : {
         $Type: 'UI.FieldGroupType',
         Data : [
             {
@@ -144,6 +144,7 @@ annotate AdminService.Orders with @(
             },
         ]
     },
+}
 );
 
 annotate AdminService.OrderItems with @(UI: {
@@ -155,68 +156,6 @@ annotate AdminService.OrderItems with @(UI: {
             Descending: true
         }, ],
     },
-    LineItem : [
-        {
-            Value             : orderItemNo,
-            Label             : '{i18n>OrderItemNo}',
-            @UI.Importance: #High
-        },
-        {
-            Value             : accountAssignmentCategory,
-            Label             : '{i18n>AccountAssignmentCategory}',
-            @UI.Importance: #Medium
-        },
-        {
-            Value             : itemCategory,
-            Label             : '{i18n>ItemCategory}',
-            @UI.Importance: #Medium
-        },
-        {
-            Value             : materialNo,
-            Label             : '{i18n>MaterialNo}',
-            @UI.Importance: #High
-        },
-        {
-            Value             : materialDescr,
-            Label             : '{i18n>MaterialDescr}',
-            @UI.Importance: #High
-        },
-        {
-            Value             : deliveryDateCategory,
-            Label             : '{i18n>DeliveryDateCategory}',
-            @UI.Importance: #Medium
-        },
-        {
-            Value             : stock,
-            Label             : '{i18n>Stock}',
-            @UI.Importance: #High
-        },
-        {
-            Value             : deliveryDate,
-            Label             : '{i18n>DeliveryDate}',
-            @UI.Importance: #Medium
-        },
-        {
-            Value             : netPrice,
-            Label             : '{i18n>NetPrice}',
-            @UI.Importance: #High
-        },
-        {
-            Value             : materialGroup,
-            Label             : '{i18n>MaterialGroup}',
-            @UI.Importance: #Medium
-        },
-        {
-            Value             : plant_plant,
-            Label             : '{i18n>Plant}',
-            @UI.Importance: #High
-        },
-        {
-            Value             : storageLocation_storageLocation,
-            Label             : '{i18n>StorageLocation}',
-            @UI.Importance: #Medium
-        },
-    ],
     HeaderFacets              : [
         {
             $Type : 'UI.ReferenceFacet',
@@ -245,23 +184,5 @@ annotate AdminService.Attachments with @(UI: {
             Property  : modifiedAt,
             Descending: true
         }, ],
-    },
-    LineItem  : [
-        {
-            Value             : orderItem_ID,
-            Label             : '{i18n>OrderItemNo}',
-            @UI.Importance: #High
-        },
-        {
-            Value             : fileName,
-            Label             : '{i18n>FileName}',
-            @UI.Importance: #Medium
-        },
-        {
-            Value             : fileType,
-            Label             : '{i18n>FileType}',
-            @UI.Importance: #Low
-        },
-    ],
-
+    }
 }) ;

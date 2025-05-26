@@ -9,4 +9,6 @@ annotate AdminService.Orders with {
 
 annotate AdminService.OrderItems with {
     ID @UI.Hidden @UI.HiddenFilter;
+    orderItemNo @Common.FieldControl : #ReadOnly;
+    text @UI.MultiLineText    : true;
 };

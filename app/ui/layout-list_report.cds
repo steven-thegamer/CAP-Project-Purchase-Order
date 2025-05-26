@@ -1,11 +1,11 @@
 using from '../../srv/admin-service';
 
-annotate AdminService.Orders with @(
-    UI.HeaderInfo: {
+annotate AdminService.Orders with @(UI: {
+    HeaderInfo: {
         TypeName      : '{i18n>HeaderTitle}',
         TypeNamePlural: '{i18n>POInfo}',
     },
-    UI.SelectionFields     : [
+    SelectionFields     : [
         orderNo,
         purchOrg_purchOrg,
         purchGroup_purchGroup,
@@ -13,7 +13,7 @@ annotate AdminService.Orders with @(
         companyCode_companyCode,
         currency_code
     ],
-    UI.LineItem  : [
+    LineItem  : [
         {
             $Type             : 'UI.DataField',
             Value             : orderNo,
@@ -73,4 +73,89 @@ annotate AdminService.Orders with @(
         */
     ],
 
-);
+});
+
+annotate AdminService.OrderItems with @(UI: {
+        LineItem : [
+        {
+            Value             : orderItemNo,
+            Label             : '{i18n>OrderItemNo}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : accountAssignmentCategory,
+            Label             : '{i18n>AccountAssignmentCategory}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : itemCategory,
+            Label             : '{i18n>ItemCategory}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : materialNo,
+            Label             : '{i18n>MaterialNo}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : materialDescr,
+            Label             : '{i18n>MaterialDescr}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : deliveryDateCategory,
+            Label             : '{i18n>DeliveryDateCategory}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : stock,
+            Label             : '{i18n>Stock}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : deliveryDate,
+            Label             : '{i18n>DeliveryDate}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : netPrice,
+            Label             : '{i18n>NetPrice}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : materialGroup,
+            Label             : '{i18n>MaterialGroup}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : plant_plant,
+            Label             : '{i18n>Plant}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : storageLocation_storageLocation,
+            Label             : '{i18n>StorageLocation}',
+            @UI.Importance: #Medium
+        },
+    ],
+});
+
+annotate AdminService.Attachments with @(UI: {
+        LineItem  : [
+        {
+            Value             : orderItem_ID,
+            Label             : '{i18n>OrderItemNo}',
+            @UI.Importance: #High
+        },
+        {
+            Value             : fileName,
+            Label             : '{i18n>FileName}',
+            @UI.Importance: #Medium
+        },
+        {
+            Value             : fileType,
+            Label             : '{i18n>FileType}',
+            @UI.Importance: #Low
+        },
+    ],
+});

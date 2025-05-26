@@ -13,3 +13,7 @@ annotate AdminService.Orders with @title: '{i18n>Orders}' {
     totalNetPrice @Common.Label: '{i18n>TotalNetPrice}';
     totalStock @Common.Label: '{i18n>TotalStock}';
 };
+
+annotate AdminService.OrderItems with @title: '{i18n>OrderItems}'{
+    
+};

@@ -113,18 +113,6 @@ annotate AdminService.Orders with {
                 },
                 {
                     $Type            : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty: 'name2',
-                },
-                {
-                    $Type            : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty: 'name3',
-                },
-                {
-                    $Type            : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty: 'name4',
-                },
-                {
-                    $Type            : 'Common.ValueListParameterDisplayOnly',
                     ValueListProperty: 'address',
                 },
                 {
